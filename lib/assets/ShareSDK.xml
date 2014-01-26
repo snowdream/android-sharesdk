@@ -48,7 +48,7 @@
     -->
     
     <ShareSDK 
-        AppKey = "androidv1101"/> <!-- 修改成你在sharesdk后台注册的应用的appkey"-->
+        AppKey = "123bdff032c0"/> <!-- 修改成你在sharesdk后台注册的应用的appkey"-->
     
     <SinaWeibo
         Id="1"
@@ -82,19 +82,19 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wx4868b35061f87885"
+        AppId="wxb3ea4e2e25357385"
         Enable="true" />
     
     <WechatMoments
         Id="5"
         SortId="5"
-        AppId="wx4868b35061f87885"
+        AppId="wxb3ea4e2e25357385"
         Enable="true" />
         
 	<WechatFavorite
         Id="6"
         SortId="6"
-        AppId="wx4868b35061f87885"
+        AppId="wxb3ea4e2e25357385"
         Enable="true" />
     
 	<QQ
