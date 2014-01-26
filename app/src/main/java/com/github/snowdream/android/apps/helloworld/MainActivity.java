@@ -36,13 +36,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ShareSDK.initSDK(this);
 
-        OnekeyShare oks = new OnekeyShare();
-        oks.setNotification(R.drawable.ic_launcher,
-                getString(R.string.app_name));
-        oks.setTitle("test");
-        oks.setImageUrl("http://img.appgo.cn/imgs/sharesdk/content/2013/07/25/1374723172663.jpg");
-        oks.show(this);
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -70,7 +63,16 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_share) {
+
+            OnekeyShare oks = new OnekeyShare();
+            oks.setNotification(R.drawable.ic_launcher,
+                    getString(R.string.app_name));
+            oks.setTitle("test");
+            oks.setText("test");
+            oks.setImageUrl("http://img.appgo.cn/imgs/sharesdk/content/2013/07/25/1374723172663.jpg");
+            oks.show(this);
+
             return true;
         }
         return super.onOptionsItemSelected(item);
