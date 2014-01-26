@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 
@@ -33,6 +34,14 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ShareSDK.initSDK(this);
+
+        OnekeyShare oks = new OnekeyShare();
+        oks.setNotification(R.drawable.ic_launcher,
+                getString(R.string.app_name));
+        oks.setTitle("test");
+        oks.setImageUrl("http://img.appgo.cn/imgs/sharesdk/content/2013/07/25/1374723172663.jpg");
+        oks.show(this);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -41,6 +50,11 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        ShareSDK.stopSDK(this);
+        super.onDestroy();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,14 +88,6 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-            OnekeyShare oks = new OnekeyShare();
-            oks.setNotification(R.drawable.ic_launcher,
-                    getString(R.string.app_name));
-            oks.setTitle("test");
-            oks.setImageUrl("http://img.appgo.cn/imgs/sharesdk/content/2013/07/25/1374723172663.jpg");
-            oks.show(getActivity());
-
             return rootView;
         }
     }
