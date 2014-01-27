@@ -619,30 +619,30 @@ public class OnekeyShare extends FakeActivity implements
 
 	// notify the share result
 	private void showNotification(long cancelTime, String text) {
-		try {
-			Context app = getContext().getApplicationContext();
-			NotificationManager nm = (NotificationManager) app
-					.getSystemService(Context.NOTIFICATION_SERVICE);
-			final int id = Integer.MAX_VALUE / 13 + 1;
-			nm.cancel(id);
-
-			long when = System.currentTimeMillis();
-			Notification notification = new Notification(notifyIcon, text, when);
-			PendingIntent pi = PendingIntent.getActivity(app, 0, new Intent(), 0);
-			notification.setLatestEventInfo(app, notifyTitle, text, pi);
-			notification.flags = Notification.FLAG_AUTO_CANCEL;
-			nm.notify(id, notification);
-
-			if (cancelTime > 0) {
-				Message msg = new Message();
-				msg.what = MSG_CANCEL_NOTIFY;
-				msg.obj = nm;
-				msg.arg1 = id;
-				UIHandler.sendMessageDelayed(msg, cancelTime, this);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Context app = getContext().getApplicationContext();
+//			NotificationManager nm = (NotificationManager) app
+//					.getSystemService(Context.NOTIFICATION_SERVICE);
+//			final int id = Integer.MAX_VALUE / 13 + 1;
+//			nm.cancel(id);
+//
+//			long when = System.currentTimeMillis();
+//			Notification notification = new Notification(notifyIcon, text, when);
+//			PendingIntent pi = PendingIntent.getActivity(app, 0, new Intent(), 0);
+//			notification.setLatestEventInfo(app, notifyTitle, text, pi);
+//			notification.flags = Notification.FLAG_AUTO_CANCEL;
+//			nm.notify(id, notification);
+//
+//			if (cancelTime > 0) {
+//				Message msg = new Message();
+//				msg.what = MSG_CANCEL_NOTIFY;
+//				msg.obj = nm;
+//				msg.arg1 = id;
+//				UIHandler.sendMessageDelayed(msg, cancelTime, this);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }
